@@ -1,5 +1,9 @@
 {
   "version": 1,
+  "framework": {
+    "name": "astro",
+    "version": "5.18.1"
+  },
   "routes": [
     {
       "path": "/<*>",
