@@ -7,6 +7,7 @@ frontend:
     build:
       commands:
         - npm run build
+        - cp .amplify-hosting/deploy-manifest.json dist/deploy-manifest.json
   artifacts:
     baseDirectory: dist
     files:
