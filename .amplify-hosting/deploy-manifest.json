@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "routes": [
+    {
+      "path": "/<*>",
+      "target": {
+        "kind": "Static"
+      },
+      "fallback": {
+        "kind": "Static",
+        "uri": "/index.html"
+      },
+      "condition": "NOT_FOUND"
+    }
+  ]
+}
