@@ -1,6 +1,5 @@
-import { defineConfig, passthroughImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import awsAmplify from 'astro-aws-amplify';
 
 import sitemap from '@astrojs/sitemap';
 
@@ -8,9 +7,5 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://www.overnightai.app',
   integrations: [mdx(), sitemap()],
-  adapter: awsAmplify(),
-  output: 'server',
-  image: {
-    service: passthroughImageService(),
-  },
+  output: 'static',
 });
