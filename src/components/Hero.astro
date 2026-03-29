@@ -1,0 +1,602 @@
+---
+---
+
+<section class="hero" id="hero">
+  <!-- Background glow blobs -->
+  <div class="hero-bg" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-badge">
+      <span class="badge">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <circle cx="6" cy="6" r="4" fill="currentColor" opacity="0.6"/>
+          <circle cx="6" cy="6" r="2" fill="currentColor"/>
+        </svg>
+        Now available — join the early access
+      </span>
+    </div>
+
+    <h1 class="hero-title">
+      Ship features<br />
+      <span class="gradient-text">while you sleep</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Overnight is the AI-powered development platform where you describe the feature and agents do the rest — planning, coding, reviewing, and deploying, end-to-end.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#book-demo" class="btn-primary hero-btn-primary">
+        Book a demo
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#how-it-works" class="btn-secondary">
+        See how it works
+      </a>
+    </div>
+
+    <div class="hero-social-proof">
+      <div class="trust-avatars" aria-hidden="true">
+        <div class="avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6)">A</div>
+        <div class="avatar" style="background: linear-gradient(135deg, #8b5cf6, #c084fc)">B</div>
+        <div class="avatar" style="background: linear-gradient(135deg, #4338ca, #6366f1)">C</div>
+        <div class="avatar" style="background: linear-gradient(135deg, #7c3aed, #a855f7)">D</div>
+      </div>
+      <p class="trust-text"><strong>Join engineering teams</strong> shipping faster with Overnight</p>
+    </div>
+
+    <!-- Product screenshot placeholder -->
+    <div class="hero-visual">
+      <div class="hero-screen-frame">
+        <div class="screen-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="screen-placeholder">
+          <!-- Product screenshot placeholder -->
+          <div class="placeholder-ui">
+            <div class="placeholder-sidebar">
+              <div class="sidebar-item active">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-label"></div>
+              </div>
+              <div class="sidebar-item">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-label"></div>
+              </div>
+              <div class="sidebar-item">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-label"></div>
+              </div>
+              <div class="sidebar-item">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-label"></div>
+              </div>
+            </div>
+            <div class="placeholder-main">
+              <div class="dag-container">
+                <div class="dag-node node-orchestrator">
+                  <div class="node-dot"></div>
+                  <span>Orchestrator</span>
+                </div>
+                <div class="dag-connector connector-1"></div>
+                <div class="dag-connector connector-2"></div>
+                <div class="dag-connector connector-3"></div>
+                <div class="dag-row">
+                  <div class="dag-node node-agent running">
+                    <div class="node-dot pulse"></div>
+                    <span>Frontend</span>
+                  </div>
+                  <div class="dag-node node-agent running">
+                    <div class="node-dot pulse"></div>
+                    <span>Backend</span>
+                  </div>
+                  <div class="dag-node node-agent">
+                    <div class="node-dot"></div>
+                    <span>Database</span>
+                  </div>
+                </div>
+                <div class="dag-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                  </div>
+                  <span class="progress-label">Running workflow · 2 agents active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="placeholder-badge">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <rect width="14" height="14" rx="4" fill="url(#img-grad)"/>
+              <path d="M3 7H11M7 3V11" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="img-grad" x1="0" y1="0" x2="14" y2="14">
+                  <stop stop-color="#6366f1"/>
+                  <stop offset="1" stop-color="#a855f7"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            Product screenshot coming soon
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating stat cards -->
+      <div class="hero-float-card card-left" aria-hidden="true">
+        <div class="float-card-icon">⚡</div>
+        <div>
+          <div class="float-card-value">10x</div>
+          <div class="float-card-label">faster shipping</div>
+        </div>
+      </div>
+
+      <div class="hero-float-card card-right" aria-hidden="true">
+        <div class="float-card-icon" style="background: linear-gradient(135deg, var(--purple-600), var(--purple-400))">🤖</div>
+        <div>
+          <div class="float-card-value">24/7</div>
+          <div class="float-card-label">agents working</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding-top: 160px;
+    padding-bottom: 80px;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: pulse-glow 6s ease-in-out infinite;
+  }
+
+  .blob-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--indigo-500), transparent);
+    top: -200px;
+    left: -100px;
+    animation-delay: 0s;
+  }
+
+  .blob-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--purple-500), transparent);
+    top: 100px;
+    right: -150px;
+    animation-delay: 2s;
+  }
+
+  .blob-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--indigo-600), transparent);
+    bottom: 0;
+    left: 40%;
+    animation-delay: 4s;
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black, transparent);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .hero-badge {
+    animation: fadeInUp 0.6s ease both;
+  }
+
+  .hero-title {
+    font-size: clamp(44px, 7vw, 80px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--white);
+    max-width: 800px;
+    animation: fadeInUp 0.6s ease 0.1s both;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(17px, 2.2vw, 20px);
+    color: var(--gray-400);
+    line-height: 1.65;
+    max-width: 560px;
+    animation: fadeInUp 0.6s ease 0.2s both;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeInUp 0.6s ease 0.3s both;
+  }
+
+  .hero-btn-primary {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+
+  .hero-social-proof {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: fadeInUp 0.6s ease 0.4s both;
+  }
+
+  .trust-avatars {
+    display: flex;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--gray-950);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    margin-left: -8px;
+  }
+
+  .avatar:first-child {
+    margin-left: 0;
+  }
+
+  .trust-text {
+    font-size: 13px;
+    color: var(--gray-500);
+  }
+
+  .trust-text strong {
+    color: var(--gray-300);
+    font-weight: 500;
+  }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 16px;
+    animation: fadeInUp 0.8s ease 0.5s both;
+  }
+
+  .hero-screen-frame {
+    background: var(--gray-900);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgb(99 102 241 / 0.2),
+      0 40px 80px -20px rgb(0 0 0 / 0.6),
+      var(--shadow-glow);
+  }
+
+  .screen-dots {
+    display: flex;
+    gap: 6px;
+    padding: 14px 16px;
+    background: var(--gray-900);
+    border-bottom: 1px solid rgb(255 255 255 / 0.06);
+  }
+
+  .screen-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gray-700);
+  }
+
+  .screen-dots span:first-child { background: #ff5f57; }
+  .screen-dots span:nth-child(2) { background: #febc2e; }
+  .screen-dots span:last-child { background: #28c840; }
+
+  .screen-placeholder {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .placeholder-ui {
+    display: flex;
+    flex: 1;
+    min-height: 380px;
+  }
+
+  .placeholder-sidebar {
+    width: 180px;
+    background: rgb(255 255 255 / 0.02);
+    border-right: 1px solid rgb(255 255 255 / 0.05);
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+  }
+
+  .sidebar-item.active {
+    background: rgb(99 102 241 / 0.15);
+  }
+
+  .sidebar-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background: var(--gray-700);
+    flex-shrink: 0;
+  }
+
+  .sidebar-item.active .sidebar-icon {
+    background: var(--indigo-500);
+  }
+
+  .sidebar-label {
+    height: 8px;
+    background: var(--gray-700);
+    border-radius: 4px;
+    flex: 1;
+  }
+
+  .sidebar-item.active .sidebar-label {
+    background: var(--indigo-400);
+    opacity: 0.5;
+  }
+
+  .placeholder-main {
+    flex: 1;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dag-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .dag-node {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    background: rgb(255 255 255 / 0.04);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-300);
+  }
+
+  .node-orchestrator {
+    background: rgb(99 102 241 / 0.15);
+    border-color: rgb(99 102 241 / 0.4);
+    color: var(--indigo-300);
+    margin-bottom: 8px;
+  }
+
+  .node-agent.running {
+    background: rgb(99 102 241 / 0.08);
+    border-color: rgb(99 102 241 / 0.25);
+    color: var(--gray-200);
+  }
+
+  .node-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gray-600);
+  }
+
+  .node-orchestrator .node-dot {
+    background: var(--indigo-400);
+  }
+
+  .node-agent.running .node-dot {
+    background: var(--indigo-400);
+  }
+
+  .node-dot.pulse {
+    animation: pulse-glow 1.5s ease-in-out infinite;
+    background: var(--indigo-400);
+    box-shadow: 0 0 8px var(--indigo-400);
+  }
+
+  .dag-connector {
+    width: 2px;
+    height: 24px;
+    background: linear-gradient(to bottom, rgb(99 102 241 / 0.4), rgb(99 102 241 / 0.1));
+  }
+
+  .connector-1 { margin-bottom: 0; }
+
+  .dag-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  .dag-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgb(255 255 255 / 0.05);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    width: 65%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--indigo-600), var(--purple-500));
+    border-radius: var(--radius-full);
+    animation: progress 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes progress {
+    from { width: 45%; }
+    to { width: 80%; }
+  }
+
+  .progress-label {
+    font-size: 12px;
+    color: var(--gray-500);
+  }
+
+  .placeholder-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgb(0 0 0 / 0.6);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    color: var(--gray-500);
+    white-space: nowrap;
+    backdrop-filter: blur(8px);
+  }
+
+  /* Floating cards */
+  .hero-float-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgb(17 24 39 / 0.9);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-xl);
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .card-left {
+    left: -20px;
+    bottom: 60px;
+    animation-delay: 0s;
+  }
+
+  .card-right {
+    right: -20px;
+    top: 80px;
+    animation-delay: 2s;
+  }
+
+  .float-card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--indigo-600), var(--indigo-400));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .float-card-value {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .float-card-label {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding-top: 120px;
+    }
+
+    .hero-float-card {
+      display: none;
+    }
+
+    .placeholder-sidebar {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .dag-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

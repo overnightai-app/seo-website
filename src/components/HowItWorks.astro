@@ -1,0 +1,685 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Connect your project',
+    description: 'Import your GitHub repo, load your environment config securely, and tell Overnight how to run your project. One-time setup, reused across every workflow.',
+    visual: 'connect',
+  },
+  {
+    number: '02',
+    title: 'Describe your feature',
+    description: 'Chat with Overnight\'s AI — your combined CPO and CTO. It asks the right questions, understands your architecture, and collaborates until it has everything it needs.',
+    visual: 'chat',
+  },
+  {
+    number: '03',
+    title: 'Review the workflow',
+    description: 'Overnight generates a complete agent workflow — prompts, tools, knowledge sources, and execution order. You review, adjust, and approve before anything runs.',
+    visual: 'review',
+  },
+  {
+    number: '04',
+    title: 'Ship while you sleep',
+    description: 'Agents run in isolated cloud environments. Watch live, get updates in workflow chat, answer questions if asked. Wake up to a pull request ready to merge.',
+    visual: 'ship',
+  },
+];
+---
+
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="hiw-header">
+      <span class="section-label">How it works</span>
+      <h2 class="section-title">
+        From idea to PR<br />
+        in <span class="gradient-text">four steps</span>
+      </h2>
+      <p class="section-subtitle">
+        Overnight handles the complexity. You provide the vision.
+      </p>
+    </div>
+
+    <div class="steps">
+      {steps.map((step, i) => (
+        <div class={`step ${i % 2 === 0 ? 'step-normal' : 'step-reverse'}`}>
+          <div class="step-content">
+            <span class="step-number">{step.number}</span>
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-description">{step.description}</p>
+          </div>
+          <div class="step-visual">
+            <div class={`step-mockup mockup-${step.visual}`}>
+              {step.visual === 'connect' && (
+                <div class="mockup-connect">
+                  <div class="connect-repo">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <path d="M10 1.667C5.397 1.667 1.667 5.397 1.667 10c0 3.682 2.388 6.807 5.702 7.909.417.077.569-.181.569-.402 0-.198-.007-.724-.011-1.42-2.32.504-2.81-1.119-2.81-1.119-.38-.964-.927-1.221-.927-1.221-.757-.518.058-.507.058-.507.838.059 1.278.86 1.278.86.744 1.274 1.951.906 2.428.693.075-.539.29-.906.528-1.114-1.851-.21-3.797-.926-3.797-4.122 0-.91.325-1.655.859-2.239-.086-.21-.372-1.058.081-2.207 0 0 .7-.224 2.292.854A7.996 7.996 0 0 1 10 5.462c.709.003 1.422.096 2.088.281 1.59-1.078 2.288-.854 2.288-.854.455 1.15.168 1.997.083 2.207.535.584.858 1.329.858 2.239 0 3.204-1.95 3.91-3.806 4.116.299.258.566.767.566 1.546 0 1.117-.01 2.017-.01 2.291 0 .223.15.483.573.401C16.617 16.803 18.333 13.68 18.333 10c0-4.603-3.73-8.333-8.333-8.333Z" fill="currentColor"/>
+                    </svg>
+                    <div class="repo-info">
+                      <div class="repo-name">my-saas-app</div>
+                      <div class="repo-branch">main · 1,243 commits</div>
+                    </div>
+                    <div class="connect-check">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <circle cx="7" cy="7" r="6" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e"/>
+                        <path d="M4 7L6.5 9.5L10 5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="connect-settings">
+                    <div class="setting-row">
+                      <span class="setting-key">.env</span>
+                      <span class="setting-val">Loaded securely</span>
+                    </div>
+                    <div class="setting-row">
+                      <span class="setting-key">Run command</span>
+                      <span class="setting-val">npm run dev</span>
+                    </div>
+                    <div class="setting-row">
+                      <span class="setting-key">Default model</span>
+                      <span class="setting-val">Claude Opus 4</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {step.visual === 'chat' && (
+                <div class="mockup-chat">
+                  <div class="chat-message ai">
+                    <div class="chat-avatar ai-avatar">AI</div>
+                    <div class="chat-bubble">
+                      Tell me about the feature you want to build. What problem does it solve for your users?
+                    </div>
+                  </div>
+                  <div class="chat-message user">
+                    <div class="chat-bubble user-bubble">
+                      I want users to be able to invite teammates to their workspace.
+                    </div>
+                    <div class="chat-avatar user-avatar">Y</div>
+                  </div>
+                  <div class="chat-message ai">
+                    <div class="chat-avatar ai-avatar">AI</div>
+                    <div class="chat-bubble">
+                      Great! A few questions: Should invites be email-based or link-based? Do you need role-based permissions? Any limit on workspace size?
+                    </div>
+                  </div>
+                  <div class="chat-typing">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                  </div>
+                </div>
+              )}
+
+              {step.visual === 'review' && (
+                <div class="mockup-dag">
+                  <div class="mini-dag">
+                    <div class="mini-node orchestrator">Orchestrator</div>
+                    <div class="mini-connectors">
+                      <div class="mini-line"></div>
+                      <div class="mini-line"></div>
+                      <div class="mini-line"></div>
+                    </div>
+                    <div class="mini-row">
+                      <div class="mini-node agent">
+                        <span class="mini-dot active"></span>Frontend
+                      </div>
+                      <div class="mini-node agent">
+                        <span class="mini-dot active"></span>Backend
+                      </div>
+                      <div class="mini-node agent">
+                        <span class="mini-dot"></span>Tests
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dag-meta">
+                    <div class="meta-item">
+                      <span class="meta-label">Agents</span>
+                      <span class="meta-val">3</span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-label">Skills</span>
+                      <span class="meta-val">5</span>
+                    </div>
+                    <div class="meta-item">
+                      <span class="meta-label">Est. time</span>
+                      <span class="meta-val">~18m</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {step.visual === 'ship' && (
+                <div class="mockup-ship">
+                  <div class="ship-chat">
+                    <div class="ship-msg">
+                      <span class="agent-tag frontend">Frontend</span>
+                      Implemented invite form and email validation ✓
+                    </div>
+                    <div class="ship-msg">
+                      <span class="agent-tag backend">Backend</span>
+                      API endpoints created, tokens secured ✓
+                    </div>
+                    <div class="ship-msg">
+                      <span class="agent-tag question">Backend</span>
+                      Should invite links expire after 7 days?
+                    </div>
+                    <div class="ship-input">
+                      <input type="text" placeholder="Reply to agent..." readonly />
+                      <button>Send</button>
+                    </div>
+                  </div>
+                  <div class="ship-pr">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <circle cx="3" cy="3" r="2" stroke="#a855f7" stroke-width="1.5"/>
+                      <circle cx="3" cy="11" r="2" stroke="#22c55e" stroke-width="1.5"/>
+                      <circle cx="11" cy="3" r="2" stroke="#a855f7" stroke-width="1.5"/>
+                      <path d="M3 5V9M3 5C3 5 11 6 11 5V8C11 9 3 9 3 9" stroke="#6366f1" stroke-width="1"/>
+                    </svg>
+                    PR #47 ready to review
+                  </div>
+                </div>
+              )}
+
+              <!-- Placeholder badge -->
+              <div class="visual-placeholder-badge" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <rect width="12" height="12" rx="3" fill="url(#vis-grad)"/>
+                  <path d="M2.5 6H9.5M6 2.5V9.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+                  <defs>
+                    <linearGradient id="vis-grad" x1="0" y1="0" x2="12" y2="12">
+                      <stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                Video demo coming soon
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    padding: 100px 0;
+    position: relative;
+  }
+
+  .how-it-works::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(99 102 241 / 0.3), transparent);
+  }
+
+  .hiw-header {
+    text-align: center;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hiw-header .section-subtitle {
+    margin: 0 auto;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .step-reverse {
+    direction: rtl;
+  }
+
+  .step-reverse > * {
+    direction: ltr;
+  }
+
+  .step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .step-number {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--indigo-400);
+    letter-spacing: 0.1em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .step-title {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .step-description {
+    font-size: 16px;
+    color: var(--gray-400);
+    line-height: 1.7;
+  }
+
+  .step-visual {
+    position: relative;
+  }
+
+  .step-mockup {
+    position: relative;
+    background: var(--gray-900);
+    border: 1px solid rgb(255 255 255 / 0.08);
+    border-radius: var(--radius-xl);
+    padding: 28px;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--shadow-xl), inset 0 1px 0 rgb(255 255 255 / 0.06);
+    overflow: hidden;
+  }
+
+  .step-mockup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(99 102 241 / 0.5), transparent);
+  }
+
+  .visual-placeholder-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    background: rgb(0 0 0 / 0.5);
+    border: 1px solid rgb(255 255 255 / 0.08);
+    border-radius: var(--radius-full);
+    font-size: 10px;
+    color: var(--gray-600);
+    backdrop-filter: blur(4px);
+  }
+
+  /* Connect mockup */
+  .mockup-connect {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .connect-repo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: rgb(255 255 255 / 0.04);
+    border: 1px solid rgb(255 255 255 / 0.08);
+    border-radius: var(--radius-md);
+    color: var(--gray-300);
+  }
+
+  .repo-info {
+    flex: 1;
+  }
+
+  .repo-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .repo-branch {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-top: 2px;
+  }
+
+  .connect-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgb(255 255 255 / 0.02);
+    border-radius: var(--radius-sm);
+  }
+
+  .setting-key {
+    font-size: 12px;
+    color: var(--gray-500);
+    font-family: monospace;
+  }
+
+  .setting-val {
+    font-size: 12px;
+    color: var(--indigo-300);
+    font-weight: 500;
+  }
+
+  /* Chat mockup */
+  .mockup-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .chat-message {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .chat-message.user {
+    flex-direction: row-reverse;
+  }
+
+  .chat-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .ai-avatar {
+    background: linear-gradient(135deg, var(--indigo-600), var(--purple-600));
+    color: white;
+  }
+
+  .user-avatar {
+    background: var(--gray-700);
+    color: var(--gray-300);
+  }
+
+  .chat-bubble {
+    padding: 10px 14px;
+    background: rgb(255 255 255 / 0.05);
+    border: 1px solid rgb(255 255 255 / 0.08);
+    border-radius: 12px;
+    border-top-left-radius: 4px;
+    font-size: 13px;
+    color: var(--gray-300);
+    line-height: 1.5;
+    max-width: 85%;
+  }
+
+  .user-bubble {
+    background: rgb(99 102 241 / 0.15);
+    border-color: rgb(99 102 241 / 0.2);
+    border-radius: 12px;
+    border-top-right-radius: 4px;
+  }
+
+  .chat-typing {
+    display: flex;
+    gap: 4px;
+    padding: 10px 14px;
+    background: rgb(255 255 255 / 0.05);
+    border: 1px solid rgb(255 255 255 / 0.08);
+    border-radius: 12px;
+    border-top-left-radius: 4px;
+    width: fit-content;
+    margin-left: 36px;
+  }
+
+  .typing-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--indigo-400);
+    animation: typing 1.2s ease-in-out infinite;
+  }
+
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes typing {
+    0%, 60%, 100% { opacity: 0.3; transform: scale(0.8); }
+    30% { opacity: 1; transform: scale(1); }
+  }
+
+  /* DAG mockup */
+  .mockup-dag {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mini-dag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .mini-node {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .mini-node.orchestrator {
+    background: rgb(99 102 241 / 0.15);
+    border: 1px solid rgb(99 102 241 / 0.3);
+    color: var(--indigo-300);
+    margin-bottom: 4px;
+  }
+
+  .mini-node.agent {
+    background: rgb(255 255 255 / 0.04);
+    border: 1px solid rgb(255 255 255 / 0.08);
+    color: var(--gray-400);
+  }
+
+  .mini-connectors {
+    display: flex;
+    gap: 48px;
+    height: 20px;
+    margin-bottom: 4px;
+  }
+
+  .mini-line {
+    width: 1px;
+    height: 100%;
+    background: rgb(99 102 241 / 0.3);
+  }
+
+  .mini-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .mini-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gray-600);
+  }
+
+  .mini-dot.active {
+    background: var(--indigo-400);
+  }
+
+  .dag-meta {
+    display: flex;
+    gap: 0;
+    background: rgb(255 255 255 / 0.03);
+    border: 1px solid rgb(255 255 255 / 0.06);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .meta-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 8px;
+    border-right: 1px solid rgb(255 255 255 / 0.06);
+  }
+
+  .meta-item:last-child {
+    border-right: none;
+  }
+
+  .meta-label {
+    font-size: 11px;
+    color: var(--gray-600);
+  }
+
+  .meta-val {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--indigo-300);
+  }
+
+  /* Ship mockup */
+  .mockup-ship {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ship-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ship-msg {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+
+  .agent-tag {
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: 10px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .agent-tag.frontend {
+    background: rgb(99 102 241 / 0.15);
+    color: var(--indigo-300);
+  }
+
+  .agent-tag.backend {
+    background: rgb(168 85 247 / 0.15);
+    color: var(--purple-400);
+  }
+
+  .agent-tag.question {
+    background: rgb(234 179 8 / 0.15);
+    color: #fbbf24;
+  }
+
+  .ship-input {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .ship-input input {
+    flex: 1;
+    background: rgb(255 255 255 / 0.04);
+    border: 1px solid rgb(255 255 255 / 0.08);
+    border-radius: var(--radius-sm);
+    padding: 7px 12px;
+    font-size: 12px;
+    color: var(--gray-400);
+    font-family: var(--font-sans);
+    pointer-events: none;
+  }
+
+  .ship-input button {
+    padding: 7px 14px;
+    background: var(--indigo-600);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    pointer-events: none;
+  }
+
+  .ship-pr {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgb(34 197 94 / 0.08);
+    border: 1px solid rgb(34 197 94 / 0.2);
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 600;
+    color: #86efac;
+  }
+
+  @media (max-width: 900px) {
+    .step {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .step-reverse {
+      direction: ltr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .how-it-works {
+      padding: 72px 0;
+    }
+
+    .steps {
+      gap: 56px;
+    }
+
+    .step-mockup {
+      min-height: auto;
+      padding: 20px;
+    }
+  }
+</style>

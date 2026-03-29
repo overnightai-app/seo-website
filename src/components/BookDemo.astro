@@ -1,0 +1,306 @@
+---
+---
+
+<section class="book-demo" id="book-demo">
+  <div class="container">
+    <div class="demo-inner">
+      <!-- Glow -->
+      <div class="demo-glow" aria-hidden="true"></div>
+
+      <div class="demo-content">
+        <span class="badge">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+            <circle cx="5" cy="5" r="4" fill="currentColor" opacity="0.5"/>
+            <circle cx="5" cy="5" r="2" fill="currentColor"/>
+          </svg>
+          Limited early access spots available
+        </span>
+        <h2 class="demo-title">
+          Ready to ship<br />
+          <span class="gradient-text">10x faster?</span>
+        </h2>
+        <p class="demo-subtitle">
+          Book a 30-minute demo and see Overnight build a real feature in your codebase — live.
+        </p>
+
+        <form class="demo-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="demo-name" class="form-label">Full name</label>
+              <input
+                type="text"
+                id="demo-name"
+                name="name"
+                placeholder="Alex Johnson"
+                class="form-input"
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="demo-email" class="form-label">Work email</label>
+              <input
+                type="email"
+                id="demo-email"
+                name="email"
+                placeholder="alex@company.com"
+                class="form-input"
+                autocomplete="email"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="demo-company" class="form-label">Company & team size</label>
+            <input
+              type="text"
+              id="demo-company"
+              name="company"
+              placeholder="Acme Inc · 10–50 engineers"
+              class="form-input"
+              autocomplete="organization"
+            />
+          </div>
+          <button type="submit" class="btn-primary demo-submit">
+            Book my demo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <p class="form-note">No spam. We'll reach out within 24 hours to schedule your slot.</p>
+        </form>
+      </div>
+
+      <div class="demo-stats">
+        <div class="stat-item">
+          <div class="stat-value gradient-text">10x</div>
+          <div class="stat-label">faster feature delivery</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-value gradient-text">24/7</div>
+          <div class="stat-label">agents working for you</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-value gradient-text">$0</div>
+          <div class="stat-label">setup cost to get started</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector('.demo-form') as HTMLFormElement;
+  const submit = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = (form.querySelector('#demo-name') as HTMLInputElement)?.value?.trim();
+    const email = (form.querySelector('#demo-email') as HTMLInputElement)?.value?.trim();
+
+    if (!name || !email) {
+      // Simple shake animation on empty required fields
+      form.querySelectorAll('.form-input').forEach((el) => {
+        const input = el as HTMLInputElement;
+        if (!input.value.trim()) {
+          input.classList.add('shake');
+          setTimeout(() => input.classList.remove('shake'), 500);
+        }
+      });
+      return;
+    }
+
+    if (submit) {
+      submit.textContent = 'Request received! ✓';
+      submit.disabled = true;
+      submit.style.opacity = '0.7';
+    }
+  });
+</script>
+
+<style>
+  .book-demo {
+    padding: 100px 0;
+  }
+
+  .demo-inner {
+    position: relative;
+    background: var(--gray-900);
+    border: 1px solid rgb(99 102 241 / 0.2);
+    border-radius: var(--radius-xl);
+    padding: 64px 56px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .demo-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgb(99 102 241 / 0.15), transparent 70%);
+    top: -200px;
+    right: -100px;
+    pointer-events: none;
+    border-radius: 50%;
+  }
+
+  .demo-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 560px;
+  }
+
+  .demo-title {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+
+  .demo-subtitle {
+    font-size: 17px;
+    color: var(--gray-400);
+    line-height: 1.65;
+  }
+
+  .demo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 480px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-400);
+  }
+
+  .form-input {
+    padding: 10px 14px;
+    background: rgb(255 255 255 / 0.04);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    color: var(--white);
+    font-family: var(--font-sans);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .form-input::placeholder {
+    color: var(--gray-600);
+  }
+
+  .form-input:focus {
+    border-color: rgb(99 102 241 / 0.6);
+    box-shadow: 0 0 0 3px rgb(99 102 241 / 0.1);
+  }
+
+  .form-input.shake {
+    border-color: rgb(239 68 68 / 0.6);
+    animation: shake 0.4s ease;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-4px); }
+    40% { transform: translateX(4px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(2px); }
+  }
+
+  .demo-submit {
+    align-self: flex-start;
+    padding: 13px 28px;
+    font-size: 15px;
+  }
+
+  .form-note {
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+
+  /* Stats */
+  .demo-stats {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgb(255 255 255 / 0.06);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-value {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--gray-500);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgb(255 255 255 / 0.08);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .demo-inner {
+      padding: 40px 28px;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .demo-stats {
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .stat-divider {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .book-demo {
+      padding: 72px 0;
+    }
+
+    .demo-inner {
+      padding: 32px 20px;
+    }
+  }
+</style>
